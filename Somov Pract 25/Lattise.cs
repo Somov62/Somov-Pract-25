@@ -12,56 +12,59 @@ namespace Somov_Pract_25
 {
     class Lattise
     {
-        private int x = 0, y = 0, size, thickness = 1;
-        string linecap = "Flat";
-        System.Windows.Media.Brush color1;
+        private int _x = 0;
+        private int _y = 0;
+        private int _size;
+        private int _thickness = 1;
+        string _linecap = "Flat";
+        System.Windows.Media.Brush _color1;
         Line gorizont1, gorizont2, vertikal1, vertikal2;
 
         public System.Windows.Media.Brush Color //Свойство цвета
         {
-            get { return color1; }
+            get { return _color1; }
             set 
             { 
             //Берем цвет и красим все линии
-            color1 = value;
-            gorizont1.Stroke = color1;
-            gorizont2.Stroke = color1;
-            vertikal1.Stroke = color1;
-            vertikal2.Stroke = color1;
+            _color1 = value;
+            gorizont1.Stroke = _color1;
+            gorizont2.Stroke = _color1;
+            vertikal1.Stroke = _color1;
+            vertikal2.Stroke = _color1;
             }
         }
         public int Thickness //Свойство толщины линий
         {
-            get { return thickness; }
+            get { return _thickness; }
             set 
             {
-                thickness = value;
-                gorizont1.StrokeThickness = thickness;
-                gorizont2.StrokeThickness = thickness;
-                vertikal1.StrokeThickness = thickness;
-                vertikal2.StrokeThickness = thickness;
+                _thickness = value;
+                gorizont1.StrokeThickness = _thickness;
+                gorizont2.StrokeThickness = _thickness;
+                vertikal1.StrokeThickness = _thickness;
+                vertikal2.StrokeThickness = _thickness;
             }
         }
         public int Size //Свойство размера фигуры
         {
-            get { return size; }
+            get { return _size; }
             set 
             { 
                 //size - множитель
-                size = value;
-                gorizont1.X1 = 0; gorizont1.Y1 = 31 * size;
-                gorizont1.X2 = 92 * size; gorizont1.Y2 = 31 * size;
-                gorizont2.X1 = 0; gorizont2.Y1 = 62 * size;
-                gorizont2.X2 = 92 * size; gorizont2.Y2 = 62 * size;
-                vertikal1.X1 = 31 * size; vertikal1.Y1 = 0;
-                vertikal1.X2 = 31 * size; vertikal1.Y2 = 92 * size;
-                vertikal2.X1 = 62 * size; vertikal2.Y1 = 0;
-                vertikal2.X2 = 62 * size; vertikal2.Y2 = 92 * size;               
+                _size = value;
+                gorizont1.X1 = 0; gorizont1.Y1 = 31 * _size;
+                gorizont1.X2 = 92 * _size; gorizont1.Y2 = 31 * _size;
+                gorizont2.X1 = 0; gorizont2.Y1 = 62 * _size;
+                gorizont2.X2 = 92 * _size; gorizont2.Y2 = 62 * _size;
+                vertikal1.X1 = 31 * _size; vertikal1.Y1 = 0;
+                vertikal1.X2 = 31 * _size; vertikal1.Y2 = 92 * _size;
+                vertikal2.X1 = 62 * _size; vertikal2.Y1 = 0;
+                vertikal2.X2 = 62 * _size; vertikal2.Y2 = 92 * _size;               
             }
         }
         public string LineCap //Свойства закругления линий
         {
-            get { return linecap; }
+            get { return _linecap; }
             set
             {
                 if (value == "Flat")
@@ -132,13 +135,13 @@ namespace Somov_Pract_25
         }
         public void Move(int newx, int newy)
         {
-            x = newx;
-            y = newy;
+            _x = newx;
+            _y = newy;
             //Устанавливаем отступы по координатам
-            gorizont1.Margin = new Thickness(x, y, 0, 0);
-            gorizont2.Margin = new Thickness(x, y, 0, 0);
-            vertikal1.Margin = new Thickness(x, y, 0, 0);
-            vertikal2.Margin = new Thickness(x, y, 0, 0);
+            gorizont1.Margin = new Thickness(_x, _y, 0, 0);
+            gorizont2.Margin = new Thickness(_x, _y, 0, 0);
+            vertikal1.Margin = new Thickness(_x, _y, 0, 0);
+            vertikal2.Margin = new Thickness(_x, _y, 0, 0);
         }
         public Lattise(int size, int thickness, System.Windows.Media.Brush color)
         {
@@ -168,10 +171,10 @@ namespace Somov_Pract_25
             vertikal2.X1 = 62 * size; vertikal2.Y1 = 0;
             vertikal2.X2 = 62 * size; vertikal2.Y2 = 92 * size;
 
-            gorizont1.Margin = new Thickness(x, y, 0, 0);
-            gorizont2.Margin = new Thickness(x, y, 0, 0);
-            vertikal1.Margin = new Thickness(x, y, 0, 0);
-            vertikal2.Margin = new Thickness(x, y, 0, 0);
+            gorizont1.Margin = new Thickness(_x, _y, 0, 0);
+            gorizont2.Margin = new Thickness(_x, _y, 0, 0);
+            vertikal1.Margin = new Thickness(_x, _y, 0, 0);
+            vertikal2.Margin = new Thickness(_x, _y, 0, 0);
         }
 
     }
